@@ -51,7 +51,6 @@ export default {
   setup () {
     return {
       twitterSvg,
-      location,
       openLinkInNewTab,
     }
   }
