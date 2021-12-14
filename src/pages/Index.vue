@@ -1,26 +1,12 @@
 <template>
-  <Layout>
-    <h1 class="text-4xl bold underline pb-4">Hello, world!</h1>
-
-    <p class="text-2xl">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
-      excepturi labore tempore expedita, et iste tenetur suscipit explicabo!
-      Dolores, aperiam non officia eos quod asperiores
-    </p>
-
-    <hr class="mx-8 my-4" />
-    <h2 class="text-2xl text-center">Find me online:</h2>
-    <Social />
-    <hr class="mx-8 my-4" />
-
-    <h2 class="text-2xl text-center">My Blog Posts:</h2>
+  <DefaultLayout>
     <div
       class="lg:grid lg:grid-flow-row lg:grid-cols-2 lg:gap-8 lg:auto-rows-auto"
     >
       <div
-        v-for="(edge, index) in $page.posts.edges"
+        v-for="(edge) in $page.posts.edges"
         :key="edge.node.id"
-        class="prose lg:prose-xl xl:prose-2xl lg:flex lg:flex-col lg:pr-20"
+        class="lg:prose-xl xl:prose-2xl lg:flex lg:flex-col lg:pr-20"
       >
         <a :href="edge.node.path">
           <h2>
@@ -33,7 +19,7 @@
         <hr class="mx-8" />
       </div>
     </div>
-  </Layout>
+  </DefaultLayout>
 </template>
 
 <page-query>
@@ -54,20 +40,19 @@ query Blog {
 }
 </page-query>
 
-<script>
-import Social from "~/components/Social.vue";
+<script lang="ts">
+import DefaultLayout from '../layouts/DefaultLayout.vue'
 export default {
+  name: 'SiteIndexPage',
+  components: { DefaultLayout },
   metaInfo: {
-    title: "Hello, world!",
+    title: '~',
     meta: [
       {
-        name: "description",
-        content: "My blog posts and musings on the world.",
-      },
-    ],
-  },
-  components: {
-    Social,
-  },
-};
+        name: 'home page',
+        content: 'blog home page'
+      }
+    ]
+  }
+}
 </script>

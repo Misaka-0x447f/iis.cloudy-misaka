@@ -4,13 +4,15 @@
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
+const fsj = require('fs-jetpack')
 
-module.exports = function(api) {
+module.exports = function (api) {
   api.loadSource(async (store) => {
-    store.addMetadata("baseURL", "https://iis.misaka.org");
-  });
+    store.addMetadata('baseURL', 'https://iis.misaka.org')
+  })
 
-  api.createPages(({ createPage }) => {
-    // Use the Pages API here: https://gridsome.org/docs/pages-api/
-  });
-};
+  api.chainWebpack((config) => {
+    fsj.write('webpack.config.js', `// this file is auto generated. do not modify. \nmodule.exports = ${JSON.stringify(config.toConfig())}`)
+    return config
+  })
+}

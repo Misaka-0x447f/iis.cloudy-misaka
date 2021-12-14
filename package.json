@@ -4,17 +4,43 @@
   "scripts": {
     "build": "gridsome build",
     "develop": "gridsome develop",
-    "explore": "gridsome explore"
+    "explore": "gridsome explore",
+    "preinstall": "npx only-allow npm",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@gridsome/plugin-sitemap": "^0.4.0",
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.6.4",
     "@tailwindcss/typography": "^0.4.1",
+    "@vue/composition-api": "^1.4.1",
     "autoprefixer": "^9",
     "gridsome": "^0.7.0",
     "gridsome-plugin-remark-prismjs-all": "^0.4.8",
+    "lodash": "^4.17.21",
     "postcss": "^7",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.178",
+    "@typescript-eslint/eslint-plugin": "^5.6.0",
+    "@typescript-eslint/parser": "^5.6.0",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "eslint-plugin-vue": "^8.2.0",
+    "fs-jetpack": "^4.3.0",
+    "gridsome-plugin-typescript": "^0.4.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
+    "ts-loader": "^8.2.0",
+    "typescript": "^4.5.3"
+  },
+  "lint-staged": {
+    "!(*test).{js,jsx,ts,tsx}": [
+      "eslint"
+    ]
   }
 }

@@ -4,60 +4,63 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
-const tailwind = require("tailwindcss");
-const postcssPlugins = [tailwind()];
+const tailwind = require('tailwindcss')
+const postcssPlugins = [tailwind()]
 
 module.exports = {
-  siteName: "Internet Information Service",
-  siteUrl: "https://iis.misaka.org",
+  siteName: 'Internet Information Service @ misaka.org',
+  siteUrl: 'https://iis.misaka.org',
   plugins: [
     {
-      use: "@gridsome/source-filesystem",
+      use: '@gridsome/source-filesystem',
       options: {
-        path: "blog/**/*.md",
-        typeName: "Post",
-        remark: {},
-      },
+        path: 'blog/**/*.md',
+        typeName: 'Post',
+        remark: {}
+      }
     },
     {
-      use: "@gridsome/plugin-sitemap",
+      use: '@gridsome/plugin-sitemap',
       options: {
-        include: ["/", "/blog/**"],
-      },
+        include: ['/', '/blog/**']
+      }
     },
+    {
+      use: 'gridsome-plugin-typescript'
+    }
   ],
   transformers: {
     remark: {
       plugins: [
         [
-          "remark-autolink-headings",
+          'remark-autolink-headings',
           {
-            behavior: "wrap",
+            behavior: 'wrap',
             linkProperties: {
-              ariaHidden: "true",
-              tabIndex: -1,
-            },
-          },
+              ariaHidden: 'true',
+              tabIndex: -1
+            }
+          }
         ],
         [
-          "gridsome-plugin-remark-prismjs-all",
+          'gridsome-plugin-remark-prismjs-all',
           {
             showLineNumbers: true,
             aliases: {
-              vue: "html",
-              cmd: "bash",
-              dos: "bash",
-            },
-          },
-        ],
-      ],
-    },
+              vue: 'html',
+              cmd: 'bash',
+              dos: 'bash'
+            }
+          }
+        ]
+      ]
+    }
   },
   css: {
     loaderOptions: {
       postcss: {
-        plugins: postcssPlugins,
-      },
-    },
-  },
-};
+        plugins: postcssPlugins
+      }
+    }
+  }
+}
