@@ -6,7 +6,7 @@
     "develop": "gridsome develop",
     "explore": "gridsome explore",
     "preinstall": "npx only-allow npm",
-    "prepare": "[ -n $CI ] && husky install"
+    "prepare": "is-ci || husky install"
   },
   "dependencies": {
     "@gridsome/plugin-sitemap": "^0.4.0",
@@ -34,6 +34,7 @@
     "fs-jetpack": "^4.3.0",
     "gridsome-plugin-typescript": "^0.4.0",
     "husky": "^7.0.4",
+    "is-ci": "^3.0.1",
     "lint-staged": "^12.1.2",
     "only-allow": "^1.0.0",
     "ts-loader": "8.2.0",
