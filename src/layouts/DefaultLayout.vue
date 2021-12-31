@@ -1,5 +1,5 @@
 <template>
-  <div class="layout">
+  <div class="layout" :style="{backgroundImage: `url('${backgroundImage}')`}">
     <header class="p-2 bg-just-black mb-8 shadow-md flex flex-wrap">
       <g-link class="font-mono text-primary" to="/">{{ $static.metadata.siteName }}</g-link>
       <LocationView class="ml-1ch"/>
@@ -31,6 +31,7 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.5;
+  color: #def;
 }
 
 header {
@@ -39,11 +40,20 @@ header {
   z-index: 10000;
 }
 </style>
+
+<style scoped>
+.layout {
+  min-height: 100vh;
+  background-size: cover;
+}
+</style>
+
 <script>
 import HeaderSpinner from './_components/HeaderSpinner/HeaderSpinner'
 import LocationView from './_components/LocationView'
 import HeaderButton from '~/layouts/_components/HeaderButton'
 import twitterSvg from '~/assets/twitter.svg'
+import backgroundImage from '~/assets/background.jpg'
 import { openLinkInNewTab } from '~/utils/navigator'
 
 export default {
@@ -52,6 +62,7 @@ export default {
     return {
       twitterSvg,
       openLinkInNewTab,
+      backgroundImage,
     }
   }
 }

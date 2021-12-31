@@ -2,6 +2,7 @@
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 
 import VueCompositionApi from '@vue/composition-api'
+import { VueConstructor } from 'vue/types/vue'
 
 // Import Tailwind CSS
 require('~/main.css')
@@ -11,7 +12,7 @@ require('gridsome-plugin-remark-prismjs-all/themes/night-owl.css')
 require('prismjs/plugins/line-numbers/prism-line-numbers.css')
 require('prismjs/plugins/command-line/prism-command-line.css')
 
-export default function (Vue) {
+export default (Vue: VueConstructor) => {
   // Set default layout as a global component
   Vue.use(VueCompositionApi)
 }
