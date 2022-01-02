@@ -3,16 +3,22 @@
     <article class="flex flex-col">
       <div class="self-end text-3xl">{{ $page.post.title }}</div>
       <div v-html="$page.post.content"></div>
-      <Gitalk />
+      <UttrancesVue
+          repo="Misaka-0x447f/iis.cloudy-misaka"
+          issue-term="og:title"
+          label="feedback"
+          theme="dark-blue"
+      />
     </article>
   </DefaultLayout>
 </template>
 
 <script>
 import DefaultLayout from '~/layouts/DefaultLayout'
+import UttrancesVue from '~/components/UttrancesVue'
 export default {
   name: 'PostTemplate',
-  components: { DefaultLayout },
+  components: { DefaultLayout, UttrancesVue },
   metaInfo () {
     return {
       title: this.$page.post.title,
