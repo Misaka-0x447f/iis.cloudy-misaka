@@ -3,9 +3,10 @@
     <article class="flex flex-col">
       <div class="self-end text-3xl">{{ $page.post.title }}</div>
       <div v-html="$page.post.content"></div>
-      <UttrancesVue
+      <UtterancesVue
+          :title="$page.post.title"
+          :redirect-url="$static.metadata.baseURL + $page.post.path"
           repo="Misaka-0x447f/iis.cloudy-misaka"
-          issue-term="og:title"
           label="feedback"
           theme="dark-blue"
       />
@@ -15,10 +16,10 @@
 
 <script>
 import DefaultLayout from '~/layouts/DefaultLayout'
-import UttrancesVue from '~/components/UttrancesVue'
+import UtterancesVue from '~/components/UtterancesVue'
 export default {
   name: 'PostTemplate',
-  components: { DefaultLayout, UttrancesVue },
+  components: { DefaultLayout, UtterancesVue },
   metaInfo () {
     return {
       title: this.$page.post.title,
