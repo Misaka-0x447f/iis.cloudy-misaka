@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    h1 {
+        font-size: theme('fontSize.2xl');
+        padding-top: theme('spacing.8');
+    }
+    h2 {
+        font-size: theme('fontSize.xl');
+        padding-top: theme('spacing.4');
+    }
+    h3 {
+        font-size: theme('fontSize.lg');
+        padding-top: theme('spacing.4');
+    }
+}

@@ -1,3 +1,4 @@
+
 module.exports = {
   purge: {
     content: [
@@ -31,9 +32,11 @@ module.exports = {
       colors: {
         primary: '#66ccff',
         'just-black': '#012'
+      },
+      gridTemplateColumns: {
+        3: 'repeat(3, minmax(0, 1fr))',
       }
     }
   },
-  variants: {},
-  plugins: [require('@tailwindcss/typography')]
+  variants: {}
 }

@@ -1,6 +1,7 @@
 <template>
-  <div class="layout" :style="{backgroundImage: `url('${backgroundImage}')`}">
-    <header class="p-2 bg-just-black mb-8 shadow-md flex flex-wrap">
+  <div class="layout">
+    <div class="background-image" :style="{backgroundImage: `url('${backgroundImage}')`}"></div>
+    <header class="p-2 bg-just-black mb-4 shadow-md flex flex-wrap">
       <g-link class="font-mono text-primary" to="/">{{ $static.metadata.siteName }}</g-link>
       <LocationView class="ml-1ch"/>
       <HeaderSpinner class="text-primary ml-1ch"/>
@@ -10,7 +11,7 @@
           @click="openLinkInNewTab('https://twitter.com/MisakaKumomi')"
       />
     </header>
-    <main class="container mx-auto px-4 md:px-8">
+    <main class="px-4 md:px-8">
       <slot/>
     </main>
   </div>
@@ -44,7 +45,15 @@ header {
 <style scoped>
 .layout {
   min-height: 100vh;
+}
+.background-image {
+  background-color: black;
   background-size: cover;
+  filter: brightness(0.4);
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: -1;
 }
 </style>
 

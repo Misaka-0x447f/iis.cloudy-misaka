@@ -1,22 +1,21 @@
 <template>
   <DefaultLayout>
     <div
-      class="lg:grid lg:grid-flow-row lg:grid-cols-2 lg:gap-8 lg:auto-rows-auto"
+      class="grid grid-flow-row auto-cols-auto lg:grid-cols-3 lg:gap-8 md:grid-cols-2 gap-4"
     >
       <div
         v-for="(edge) in $page.posts.edges"
         :key="edge.node.id"
-        class="lg:prose-xl xl:prose-2xl lg:flex lg:flex-col lg:pr-20"
+        class=""
       >
         <a :href="edge.node.path">
-          <h2>
+          <h2 class="text-xl">
             {{ edge.node.title }}
           </h2>
         </a>
         <p class="lg:flex-grow lg:justify-self-start">
           {{ edge.node.description }}
         </p>
-        <hr class="mx-8" />
       </div>
     </div>
   </DefaultLayout>

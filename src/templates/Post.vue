@@ -1,10 +1,10 @@
 <template>
   <DefaultLayout>
-    <article class="prose lg:prose-xl xl:prose-2xl">
-      <h1>{{ $page.post.title }}</h1>
+    <article class="flex flex-col">
+      <div class="self-end text-3xl">{{ $page.post.title }}</div>
       <div v-html="$page.post.content"></div>
+      <Gitalk />
     </article>
-    <hr class="m-4" />
   </DefaultLayout>
 </template>
 
