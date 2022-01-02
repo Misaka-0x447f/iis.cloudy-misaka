@@ -5,6 +5,7 @@
 <script lang="ts">
 import { defineComponent, onMounted, reactive, watch } from '@vue/composition-api'
 import { useBeforeMount } from '../utils/hooks'
+import { param, deparam } from '../utils/deparam'
 
 interface ResizeMessage {
   type: 'resize';
@@ -40,6 +41,18 @@ export default defineComponent({
       loaded: false
     })
     onMounted(() => {
+      // get session
+      const session = deparam(location.search.substr(1))
+      if (session?.utterances) {
+        localStorage.setItem('utterances-session', session.utterances)
+        delete session.utterances
+        let search = param(session)
+        if (search.length) {
+          search = '?' + search
+        }
+        history.replaceState(undefined, document.title, location.pathname + search + location.hash)
+      }
+      // setup
       const params = {
         'issue-term': 'title',
         // @ts-ignore
@@ -51,6 +64,7 @@ export default defineComponent({
         pathname: location.pathname,
         // @ts-ignore
         origin: process.isClient ? window.origin : root.$static.metadata.siteUrl,
+        session: session?.utterances || localStorage.getItem('utterances-session') || '',
       }
       data.url = 'https://utteranc.es/utterances.html?' + Object.keys(params)
       // @ts-ignore
