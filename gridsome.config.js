@@ -27,11 +27,17 @@ module.exports = {
     },
     {
       use: 'gridsome-plugin-typescript'
-    }
+    },
   ],
   transformers: {
     remark: {
       plugins: [
+        require('./src/plugins/remark-auto-paragraph'),
+        [
+          '@noxify/gridsome-plugin-remark-embed', {
+            enabledProviders: ['Youtube', 'Twitter', 'Gist'],
+          }
+        ],
         [
           'remark-autolink-headings',
           {
@@ -51,7 +57,7 @@ module.exports = {
               dos: 'bash'
             }
           }
-        ]
+        ],
       ]
     }
   },

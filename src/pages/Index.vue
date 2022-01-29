@@ -6,20 +6,24 @@
       <div
         v-for="(edge) in $page.posts.edges"
         :key="edge.node.id"
-        class=""
+        class="flex flex-col max-h-60 truncate fadeout-container"
       >
         <a :href="edge.node.path">
-          <h2 class="text-xl">
+          <h2 class="text-xl whitespace-normal pb-4">
             {{ edge.node.title }}
           </h2>
+          <div v-html="edge.node.content"></div>
         </a>
-        <p class="lg:flex-grow lg:justify-self-start">
-          {{ edge.node.description }}
-        </p>
       </div>
     </div>
   </DefaultLayout>
 </template>
+
+<style scoped>
+.fadeout-container {
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+</style>
 
 <page-query>
 query Blog {
@@ -33,6 +37,7 @@ query Blog {
         path
         date_published
         timeToRead
+        content
       }
     }
   }

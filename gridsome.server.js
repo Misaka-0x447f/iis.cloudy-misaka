@@ -12,7 +12,7 @@ module.exports = function (api) {
   })
 
   api.chainWebpack((config) => {
-    fsj.write('webpack.config.js', `// this file is auto generated. do not modify. \nmodule.exports = ${JSON.stringify(config.toConfig())}`)
+    fsj.write('webpack.ide.config.js', `// this file is auto generated. do not modify. \nmodule.exports = ${JSON.stringify(config.toConfig())}`)
     return config
   })
 }

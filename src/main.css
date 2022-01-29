@@ -15,4 +15,10 @@
         font-size: theme('fontSize.lg');
         padding-top: theme('spacing.4');
     }
+    li {
+        list-style: '-- ';
+    }
+    p {
+        text-indent: 2em;
+    }
 }

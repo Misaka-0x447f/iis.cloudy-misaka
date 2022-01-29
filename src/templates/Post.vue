@@ -1,6 +1,6 @@
 <template>
   <DefaultLayout>
-    <article class="flex flex-col">
+    <article class="flex flex-col max-w-screen-lg">
       <div class="self-end text-3xl">{{ $page.post.title }}</div>
       <div v-html="$page.post.content"></div>
       <UtterancesVue

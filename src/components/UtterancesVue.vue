@@ -69,8 +69,6 @@ export default defineComponent({
       data.url = 'https://utteranc.es/utterances.html?' + Object.keys(params)
       // @ts-ignore
         .map(name => `${encodeURIComponent(name)}=${encodeURIComponent(params[name])}`).join('&')
-      console.log(params)
-      console.log(data.url)
     })
     // @ts-ignore
     watch(() => props.theme, () => refs.contentWindow?.postMessage({

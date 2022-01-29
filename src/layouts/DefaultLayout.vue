@@ -11,7 +11,7 @@
           @click="openLinkInNewTab('https://twitter.com/MisakaKumomi')"
       />
     </header>
-    <main class="px-4 md:px-8">
+    <main class="px-4 md:px-8 flex justify-center">
       <slot/>
     </main>
   </div>
